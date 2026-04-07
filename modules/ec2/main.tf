@@ -40,4 +40,4 @@ resource "aws_instance" "web" {
   }
 }
 
-# Output the public IP of the EC2 instance
+#first commit
