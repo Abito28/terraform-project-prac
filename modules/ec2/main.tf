@@ -22,8 +22,8 @@ resource "aws_security_group_rule" "egress_all" {
 }
 
 resource "aws_instance" "web" {
-  ami                    = "ami-0b4a1b07f9ca13717" # Amazon Linux 2 AMI 
-  instance_type          = "t2.micro"
+  ami                    = var.ec2-ami # Amazon Linux 2 AMI 
+  instance_type          = var.instance_type
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   user_data              = <<-EOF
@@ -40,4 +40,3 @@ resource "aws_instance" "web" {
   }
 }
 
-#first commit

@@ -10,8 +10,8 @@ resource "aws_cloudwatch_metric_alarm" "cpu_alarm" {
   alarm_actions       = [aws_sns_topic.alerts.arn]
 
   dimensions = {
-  InstanceId = aws_instance.web.id 
-}
+    InstanceId = aws_instance.web.id
+  }
 }
 
 resource "aws_cloudwatch_dashboard" "main" {

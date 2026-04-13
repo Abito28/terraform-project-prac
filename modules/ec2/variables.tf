@@ -14,3 +14,13 @@ variable "ec2_name" {
 variable "subnet_id" {
   type = string
 }
+
+variable "instance_type" {
+  type = string
+  default = "t2.micro"
+}
+
+variable "ec2-ami" {
+  type = string
+  default = "ami-0b4a1b07f9ca13717"
+}
