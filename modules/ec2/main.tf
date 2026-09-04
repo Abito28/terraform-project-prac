@@ -3,7 +3,7 @@ resource "aws_security_group" "ec2_sg" {
   name   = "${var.ec2_name}-sg"
 }
 
-resource "aws_security_group_rule" "ingress_ssh" {
+resource "aws_security_group_rule" "ingress_http" {
   type              = "ingress"
   from_port         = 80
   to_port           = 80
@@ -14,9 +14,9 @@ resource "aws_security_group_rule" "ingress_ssh" {
 
 resource "aws_security_group_rule" "egress_all" {
   type              = "egress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.ec2_sg.id
 }
@@ -39,4 +39,16 @@ resource "aws_instance" "web" {
     Name = var.ec2_name
   }
 }
+
+# resource "aws_instance" "management"{
+# ami                   = var.ec2-ami # Amazon Linux 2 AMI 
+#   instance_type          = var.instance_type
+#   subnet_id              = var.subnet_id
+#   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
+
+#   tags = {
+#     Name = "${var.ec2_name}-management"
+#   }
+# }
+
 

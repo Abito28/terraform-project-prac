@@ -38,6 +38,7 @@ variable "ec2-ami" {
   type    = string
   default = "ami-0b4a1b07f9ca13717"
 }
-variable "alb_subnets" {
+
+/* variable "alb_subnets" {
   type = list(string)
-}
+} */
